@@ -1,0 +1,21 @@
+[submodule "cola2_turbot"]
+	path = cola2_turbot
+	url = https://github.com/srv/cola2_turbot.git
+[submodule "cola2_xiroi"]
+	path = cola2_xiroi
+	url = https://github.com/srv/cola2_xiroi.git
+[submodule "cola2_msgs"]
+	path = cola2_msgs
+	url = https://github.com/srv/cola2_msgs.git
+[submodule "turbot_description"]
+	path = turbot_description
+	url = https://github.com/srv/turbot_description.git
+[submodule "xiroi_description"]
+	path = xiroi_description
+	url = https://github.com/srv/xiroi_description.git
+[submodule "cola2_core"]
+	path = cola2_core
+	url = https://github.com/srv/cola2_core.git
+[submodule "multi_robot_system"]
+	path = multi_robot_system
+	url = https://github.com/martorelltorres/multi_robot_system.git
