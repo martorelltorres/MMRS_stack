@@ -22,3 +22,9 @@ Install cola2_lib
     make
     sudo make install
 
+
+Other dependencies:
+pip install geopandas
+pip install scipy
+pip install gitpython
+pip install shapely
