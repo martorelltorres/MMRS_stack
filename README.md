@@ -28,3 +28,4 @@ pip install geopandas
 pip install scipy
 pip install gitpython
 pip install shapely
+pip install scikit-learn
