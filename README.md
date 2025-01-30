@@ -1,6 +1,6 @@
 # MMRS_stack
 ## System prerequisites
-The recommended setup to run the current version of the [COLA2](https://iquarobotics.com/cola2) architecture is Ubuntu 20.04 LTS and [ROS Noetic](https://wiki.ros.org/noetic).
+The recommended setup to run the current version of the MMRS_stack include the [COLA2](https://iquarobotics.com/cola2) architecture, Ubuntu 20.04 LTS and [ROS Noetic](https://wiki.ros.org/noetic).
 We recommend to install the ROS desktop-full version (ros-noetic-desktop-full).
 
 ## Installation
