@@ -39,7 +39,13 @@ Install multi_robot_system package dependencies:
 ```
         pip install geopandas scipy gitpython shapely scikit-learn
 ```
-Install [Iquaview](https://bitbucket.org/iquarobotics/iquaview/src/master/) following the installation procedure detailed in the link.
+Install [Iquaview](https://bitbucket.org/iquarobotics/iquaview/src/master/) into the MMRS_stack using the installation procedure detailed in the link.
+
+Finally compile the MMRS_stack:
+```
+    cd catkin_ws
+    catkin build
+```
 
 ## MMRS workflow
 ### 1-Define the area exploration
