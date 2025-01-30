@@ -5,8 +5,9 @@ We recommend to install the ROS desktop-full version (ros-noetic-desktop-full).
 
 ## Installation
 Create a [catkin_ws](https://wiki.ros.org/catkin/Tutorials/create_a_workspace), and run the following commands:
-``` cd catkin_ws/src
-    git clone
+```
+    cd catkin_ws/src
+    git clone https://github.com/martorelltorres/MMRS_stack.git
     cd MMRS_stack/
     chmod +x install_first_time.sh
     ./install_first_time.sh
