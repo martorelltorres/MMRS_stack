@@ -1,12 +1,12 @@
 # :ocean::robot::ocean: MMRS_stack :ocean::robot::ocean: 
 ## MMRS definition
 This stack presents a Marine Multi-Robot System (MMRS) composed by a number of Autonomous Underwater Vehicles (AUVs) exploring the sea floor and an Autonomous Surface Vehicle (ASV) acting as a communication relay point and as a central coordinator of the system. Our work focuses on the coordination algorithm for such an heterogeneous team of marine robots. Real-world applications of such systems include deploying multiple marine vehicles to detect and assess the abundance of commercially valuable species on the seabed or to identify potential safety hazards in a given area. The main goal of the system is the reduction of the communication latency between the acquisition and transmission of data from randomly scattered objects of interest on the seafloor.
-![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/comm_squeme.svg)
+![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/images/comm_squeme.svg)
 
 ## System prerequisites
 The recommended setup to run the current version of the MMRS_stack include the [COLA2](https://iquarobotics.com/cola2) architecture, Ubuntu 20.04 LTS and [ROS Noetic](https://wiki.ros.org/noetic).
 We recommend to install the ROS desktop-full version (ros-noetic-desktop-full).
-![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/system.svg)
+![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/images/system.svg)
 
 ## Stack installation
 Create a [catkin_ws](https://wiki.ros.org/catkin/Tutorials/create_a_workspace), and run the following commands:
@@ -57,8 +57,8 @@ Make sure that you set the: number_of_robots, pickle_path and exploration_area p
     python polygon_division.py
 ```
 As a result you will obtain something like this:
-![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/system.svg)
 
+![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/images/area_partition.svg)
 
 ### 2-Divide the area exploration
 Once the exploration area has been defined, it must be divided into as many parts as explorer robots you wish to use in the system.
