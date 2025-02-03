@@ -25,7 +25,7 @@
 [submodule "multi_robot_system"]
 	path = multi_robot_system
 	url = https://github.com/martorelltorres/multi_robot_system.git
-	branch = noetic-24.01-MRS
+	branch = noetic-24.01
 [submodule "cola2_lib_ros"]
 	path = cola2_lib_ros
 	url = https://github.com/srv/cola2_lib_ros.git
