@@ -60,6 +60,8 @@ As a result you will obtain something like this:
 
 ![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/images/area_partition.svg)
 
+Where the exploration area will have been divided into as many sub regions as AUVs have been defined.
+
 ### 2-Divide the area exploration
 Once the exploration area has been defined, it must be divided into as many parts as explorer robots you wish to use in the system.
 ### 3-Run the exploration process
