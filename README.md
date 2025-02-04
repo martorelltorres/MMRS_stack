@@ -7,47 +7,50 @@ Our approach presents an MMRS coordination strategy in which multiple explorer A
 
 ## System prerequisites
 The recommended setup to run the current version of the MMRS_stack include the [COLA2](https://iquarobotics.com/cola2) architecture, Ubuntu 20.04 LTS and [ROS Noetic](https://wiki.ros.org/noetic).
-We recommend to install the ROS desktop-full version (ros-noetic-desktop-full).
+We recommend to install the ROS desktop-full version (ros-noetic-desktop-full). As far as the visualization system is concerned, the [Rviz](https://wiki.ros.org/rviz) tool has been used. RViz is a 3D visualization tool in ROS for displaying sensor data, robot models, and the environment.
 ![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/images/system%20(1).jpg)
+
+The vehicles used for the simulations are the  [Sparus-II AUV](https://iquarobotics.com/sparus-ii-auv) and the [XiroiII ASV](https://www.mdpi.com/1424-8220/23/1/109), as shown in the previous figure.
+
 
 ## Stack installation
 Create a [catkin_ws](https://wiki.ros.org/catkin/Tutorials/create_a_workspace), and run the following commands:
 ```
-    cd catkin_ws/src
-    git clone https://github.com/martorelltorres/MMRS_stack.git
-    cd MMRS_stack/
-    chmod +x install_first_time.sh
-    ./install_first_time.sh
+cd catkin_ws/src
+git clone https://github.com/martorelltorres/MMRS_stack.git
+cd MMRS_stack/
+chmod +x install_first_time.sh
+./install_first_time.sh
 ```
 Wait for the code to download.
 
 Install [cola2 architecture](https://iquarobotics.com/cola2) dependencies:
 ```
-    sudo apt install ros-noetic-rosbridge-server ros-noetic-joy lm-sensors lcov python3-ruamel.yaml python-is-python3 python3-pip 
-    pip3 install GitPython==3.1.42
+sudo apt install ros-noetic-rosbridge-server ros-noetic-joy lm-sensors lcov python3-ruamel.yaml python-is-python3 python3-pip 
+pip3 install GitPython==3.1.42
 ```
 
 Install cola2_lib:
 ```
-        git clone https://bitbucket.org/iquarobotics/cola2_lib.git
-        cd cola2_lib
-        # check the required dependencies and then
-        mkdir build
-        cd build
-        cmake ..
-        make
-        sudo make install
+git clone https://bitbucket.org/iquarobotics/cola2_lib.git
+cd cola2_lib
+# check the required dependencies and then
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
 ```
 Install multi_robot_system package dependencies:
 ```
-        pip install geopandas scipy gitpython shapely scikit-learn
+pip install geopandas scipy gitpython shapely scikit-learn
 ```
 Install [Iquaview](https://bitbucket.org/iquarobotics/iquaview/src/master/) into the MMRS_stack using the installation procedure detailed in the link.
 
 Finally compile the MMRS_stack:
 ```
-    cd catkin_ws
-    catkin build
+cd catkin_ws
+catkin build
 ```
 
 ## Working with MMRS_stack
@@ -61,8 +64,8 @@ exploration_area: 20000
 ```
  params located into the ~/catkin_ws/src/MMRS_stack/multi_robot_system/config/data_extraction.yaml.
 ```
-    cd ~/catkin_ws/src/MMRS_stack/multi_robot_system/src
-    python polygon_division.py
+cd ~/catkin_ws/src/MMRS_stack/multi_robot_system/src
+python polygon_division.py
 ```
 As a result you will obtain something like this:
 
