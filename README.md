@@ -88,8 +88,11 @@ repulsion_radius: 10 #delineates the area in which the ASV implements a repulsio
 adrift_radius: 20 #indicates the optimal communication distance at which the acoustic signal is most effective.
 tracking_radius: 30 #defines the area within which the ASV must track an AUV.
 ```
-  
-As far as the area coverage is concerned the offset_coverage_distance parameter sets the distance between the coverage lines path.
+As far as the area coverage is concerned the:
+```
+offset_coverage_distance: 5
+```
+parameter sets the distance between the coverage lines path. The AUVs follow a back-and-forth coverage pattern with the objective of explore their assigned sub-area.
 
 ### 4-Run the exploration process
 Once the exploration area has been defined, it must be divided into as many parts as explorer robots you wish to use in the system.
