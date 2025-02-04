@@ -51,7 +51,7 @@ Finally compile the MMRS_stack:
 ```
 
 ## Working with MMRS_stack
-### 1-Define and divide the area exploration
+### 1- Define and divide the area exploration
 To define the area exploration you should run Iquaview as detailed [here](https://bitbucket.org/iquarobotics/iquaview/src/master/). Choose a waypoints mission template, draw the area tha you would like to explore and save the mission.xml in the multi_robot_system/missions.
 Make sure that you set the:
 ```
@@ -70,7 +70,7 @@ As a result you will obtain something like this:
 
 Where the exploration area will have been divided into as many sub regions as AUVs have been defined. This pre-process system divides the area of interest into sub-regions that will be assigned to each of the explorer AUV, and generates a series of objects of interest (priority and regular) within the region.
 
-### 2-Define the aggregation method and set the weights of each stimulus
+### 2- Define the aggregation method and set the weights of each stimulus
 The data_extraction.yaml file,located in multi_robot_system/config folder, contains all the parameters involved in the coordination process of the multi-robot system. The system implements two aggregation methods, ARTM and OWA. These methods are used by the ASV to decide to which AUV it should go to collect information.  
 ```
 aggregation_model: Set to 1 if you want to use ARTM or 2 if you want o use OWA.
@@ -81,21 +81,38 @@ w2: 3 # [0-1]
 w3: 4 #[0-1]
 ```
   
-### 3-Define the tracking strategy and area coverage parameters
+### 3- Define the tracking strategy and area coverage parameters
 Once the ASV has decided which AUV to go to in order to collect the information through the acoustic channel, a tracking strategy detailed in this [article](https://www.mdpi.com/1424-8220/23/1/109) will be applied. This strategy is defined by three parameters, defined in the multi_robot_system/config/multi_robot_ystem.yaml file:
 ```
 repulsion_radius: 10 #delineates the area in which the ASV implements a repulsion strategy to prevent potential collisions with the AUV.
 adrift_radius: 20 #indicates the optimal communication distance at which the acoustic signal is most effective.
 tracking_radius: 30 #defines the area within which the ASV must track an AUV.
 ```
-As far as the area coverage is concerned the:
+As far as the area coverage is concerned you must define the following parameters:
 ```
-offset_coverage_distance: 5
+# NED origin definition, the latitude and longitude point of reference
+ned_origin_lat: 39.543330
+ned_origin_lon: 2.377940
+offset_coverage_distance: 5 #sets the distance between the coverage lines path.
 ```
-parameter sets the distance between the coverage lines path. The AUVs follow a back-and-forth coverage pattern with the objective of explore their assigned sub-area.
+> [!CAUTION]
+> It is essential to establish a NED origin near the designated exploration area; otherwise, the COLA2 security mechanisms will prevent the activation of the robot architectures.
 
-### 4-Run the exploration process
-Once the exploration area has been defined, it must be divided into as many parts as explorer robots you wish to use in the system.
+The AUVs follow a back-and-forth coverage pattern with the objective of explore their assigned sub-area.
+
+![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/images/coverage%20.jpg)
+
+
+### 4- Run the exploration process
+In order to launch the multi robot system yo should run the following command:
+
+```
+roslaunch multi_robot_system mrs.launch
+
+```
+## Results
+
+
 
 ## Related publications
 1. [Xiroi II, an Evolved ASV Platform for Marine Multirobot Operations](https://www.mdpi.com/1424-8220/23/1/109)
