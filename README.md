@@ -1,7 +1,9 @@
 # :ocean::robot::ocean: MMRS_stack :ocean::robot::ocean: 
 ## MMRS definition
-This stack presents a Marine Multi-Robot System (MMRS) composed by a number of Autonomous Underwater Vehicles (AUVs) exploring the sea floor and an Autonomous Surface Vehicle (ASV) acting as a communication relay point and as a central coordinator of the system. Our work focuses on the coordination algorithm for such an heterogeneous team of marine robots. Real-world applications of such systems include deploying multiple marine vehicles to detect and assess the abundance of commercially valuable species on the seabed or to identify potential safety hazards in a given area. The main goal of the system is the reduction of the communication latency between the acquisition and transmission of data from randomly scattered objects of interest on the seafloor.
+This stack presents a Marine Multi-Robot System (MMRS) composed by a number of Autonomous Underwater Vehicles (AUVs) exploring the sea floor and an Autonomous Surface Vehicle (ASV) acting as a communication relay point and as a central coordinator of the system. Our work focuses on the coordination algorithm for such an heterogeneous team of marine robots. The main goal of the system is the reduction of the communication latency between the acquisition and transmission of data from randomly scattered objects of interest on the seafloor. In the context of this research,latency refers to the time elapsed between the detection of objects of interest scattered in the environment and stored in
+the AUVs memory and the moment when they are received by the ASV.
 ![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/images/comm_squeme.svg)
+Our approach presents an MMRS coordination strategy in which multiple explorer AUVs acoustically report their status to an ASV coordinator, which manages the decision-making process. The ASV uses information that characterises the communication with each AUV to decide which AUV should go to collect information from the explored environment. In order to achieve the objective, this paper proposes a new multi-robot task allocation (MRTA) based on Adaptive Response Threshold Method (ARTM) and Ordered Weighted Average (OWA) aggregation methods.
 
 ## System prerequisites
 The recommended setup to run the current version of the MMRS_stack include the [COLA2](https://iquarobotics.com/cola2) architecture, Ubuntu 20.04 LTS and [ROS Noetic](https://wiki.ros.org/noetic).
@@ -49,9 +51,15 @@ Finally compile the MMRS_stack:
 ```
 
 ## Working with MMRS_stack
-### 1-Define the area exploration
+### 1-Define and divide the area exploration
 To define the area exploration you should run Iquaview as detailed [here](https://bitbucket.org/iquarobotics/iquaview/src/master/). Choose a waypoints mission template, draw the area tha you would like to explore and save the mission.xml in the multi_robot_system/missions.
-Make sure that you set the: number_of_robots, pickle_path and exploration_area params located into the ~/catkin_ws/src/MMRS_stack/multi_robot_system/config/data_extraction.yaml.
+Make sure that you set the:
+```
+number_of_robots: 6
+pickle_path:'~/catkin_ws/src/multi_robot_system/missions/pickle/6AUVs/20000.pickle'
+exploration_area: 20000
+```
+ params located into the ~/catkin_ws/src/MMRS_stack/multi_robot_system/config/data_extraction.yaml.
 ```
     cd ~/catkin_ws/src/MMRS_stack/multi_robot_system/src
     python polygon_division.py
@@ -60,7 +68,7 @@ As a result you will obtain something like this:
 
 ![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/images/area_partition.svg)
 
-Where the exploration area will have been divided into as many sub regions as AUVs have been defined. This pre-process system divides the area of interest into sub-regions that will be assigned to each of the explorer AUV, and generates a series of objects of interest within the region.
+Where the exploration area will have been divided into as many sub regions as AUVs have been defined. This pre-process system divides the area of interest into sub-regions that will be assigned to each of the explorer AUV, and generates a series of objects of interest (priority and regular) within the region.
 
 ### 2-Define the aggregation method and set the weights of each stimulus
 The data_extraction.yaml file,located in multi_robot_system/config folder, contains all the parameters involved in the coordination process of the multi-robot system. The system implements two aggregation methods, ARTM and OWA. These methods are used by the ASV to decide to which AUV it should go to collect information.  
