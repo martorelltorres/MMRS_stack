@@ -8,7 +8,7 @@ Our approach presents an MMRS coordination strategy in which multiple explorer A
 ## System prerequisites
 The recommended setup to run the current version of the MMRS_stack include the [COLA2](https://iquarobotics.com/cola2) architecture, Ubuntu 20.04 LTS and [ROS Noetic](https://wiki.ros.org/noetic).
 We recommend to install the ROS desktop-full version (ros-noetic-desktop-full).
-![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/images/system.svg)
+![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/images/system%20(1).jpg)
 
 ## Stack installation
 Create a [catkin_ws](https://wiki.ros.org/catkin/Tutorials/create_a_workspace), and run the following commands:
@@ -66,7 +66,7 @@ exploration_area: 20000
 ```
 As a result you will obtain something like this:
 
-![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/images/area_partition.svg)
+![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/images/area_partition%20(1).jpg)
 
 Where the exploration area will have been divided into as many sub regions as AUVs have been defined. This pre-process system divides the area of interest into sub-regions that will be assigned to each of the explorer AUV, and generates a series of objects of interest (priority and regular) within the region.
 
@@ -98,10 +98,9 @@ offset_coverage_distance: 5 #sets the distance between the coverage lines path.
 > [!CAUTION]
 > It is essential to establish a NED origin near the designated exploration area; otherwise, the COLA2 security mechanisms will prevent the activation of the robot architectures.
 
-The AUVs follow a back-and-forth coverage pattern with the objective of explore their assigned sub-area.
+The AUVs follow a back-and-forth coverage pattern defined [here](https://www.sciencedirect.com/science/article/pii/S0141118723003899) with the objective of explore their assigned sub-area.
 
 ![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/images/coverage%20.jpg)
-
 
 ### 4- Run the exploration process
 In order to launch the multi robot system yo should run the following command:
@@ -111,8 +110,8 @@ roslaunch multi_robot_system mrs.launch
 
 ```
 ## Results
-
-
+In this scene, 6 AUVs are seen performing an exploration of a predefined area, while the ASV applies the coordination mechanism outlined before. The ASV follows the vehicles and receives information about the objects of interest present in the environment. Regular objects are depicted as green balls, while objects of interest are shown as red balls. The circumscribed circles highlighted in red, green, and blue represent the different zones of the AUV tracking strategy: the repulsion area, the resting area, and the tracking area, respectively. 
+![Alt text](https://github.com/martorelltorres/MMRS_stack/blob/main/images/simulation%20.jpg)
 
 ## Related publications
 1. [Xiroi II, an Evolved ASV Platform for Marine Multirobot Operations](https://www.mdpi.com/1424-8220/23/1/109)
