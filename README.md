@@ -1,4 +1,4 @@
-# :ocean::robot::ocean: MMRS_stack :ocean::robot::ocean: 
+# :ocean: MMRS_stack :ocean:
 ## MMRS definition
 This stack presents a Marine Multi-Robot System (MMRS) composed by a number of Autonomous Underwater Vehicles (AUVs) exploring the sea floor and an Autonomous Surface Vehicle (ASV) acting as a communication relay point and as a central coordinator of the system. Our work focuses on the coordination algorithm for such an heterogeneous team of marine robots. The main goal of the system is the reduction of the communication latency between the acquisition and transmission of data from randomly scattered objects of interest on the seafloor. In the context of this research,latency refers to the time elapsed between the detection of objects of interest scattered in the environment and stored in
 the AUVs memory and the moment when they are received by the ASV.
